@@ -12,7 +12,7 @@ var A_URL = "13";
 euroApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $location) {
   $location.hashPrefix('!');
   $routeProvider.
-  when('/euro', {
+  when('/euro-copa', {
       templateUrl: 'view/home.html',
       controller: 'HomeCtrl'
 
@@ -25,7 +25,7 @@ euroApp.config(['$routeProvider', '$locationProvider', function($routeProvider, 
       controller: 'MatchCtrl'
    
     }).otherwise({
-      redirectTo: '/euro'
+      redirectTo: '/euro-copa'
     });
   //app config
 }]);
