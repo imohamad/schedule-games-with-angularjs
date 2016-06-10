@@ -140,7 +140,7 @@ themeController.controller('GroupCtrl', ['$scope', '$http', '$routeParams', func
 }]);
 
 //Match controller
-themeController.controller('MatchCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams){
+themeController.controller('MatchCtrl', ['$scope', '$http', '$routeParams', '$interval', function ($scope, $http, $routeParams, $interval){
   $scope.loading = true;
   var MATCH_ID = $routeParams.param;
 
@@ -153,6 +153,18 @@ themeController.controller('MatchCtrl', ['$scope', '$http', '$routeParams', func
 
   //http
   });
+
+  //chek for new event - 1 min
+  $interval(callAtInterval, 60000);
+  function callAtInterval() {
+    $http.get(MATCH_EVENT_URL + MATCH_ID).success(function(data){
+    $scope.match = data;
+    console.log("chek!");
+
+  //http
+  });
+    //function
+}
 
   //ctrl
 }]);
