@@ -66,6 +66,12 @@ euroApp.filter('status', function() {
     if(input == 7){
       result = "og.png";
     }
+    if(input == 9){
+      result = "subin.png";
+    }
+    if(input == 10){
+      result = "subout.png";
+    }
     return result;
 
 //function
