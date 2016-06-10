@@ -1,0 +1,53 @@
+﻿<!-- loading -->
+<div class="loading" ng-show="loading">
+<img src="images/loading.svg">
+</div>
+<!-- /loading -->
+
+<div class="warp" ng-hide="loading">
+<!-- nav -->
+<nav>
+  <ul>
+    <li ng-class="{current: active == 1}" ng-click="active = 1; getVal(13)" ng-model="result" ng-init="active = 1">گروه A</li>
+    <li ng-class="{current: active == 2}" ng-click="active = 2; getVal(20)" ng-model="result">گروه B</li>
+    <li ng-class="{current: active == 3}" ng-click="active = 3; getVal(28)" ng-model="result">گروه C</li>
+    <li ng-class="{current: active == 4}" ng-click="active = 4; getVal(29)" ng-model="result">گروه D</li>
+    <li ng-class="{current: active == 5}" ng-click="active = 5; getVal(30)" ng-model="result">گروه E</li>
+    <li ng-class="{current: active == 6}" ng-click="active = 6; getVal(31)" ng-model="result">گروه F</li>
+  </ul>
+ </nav>
+<!-- /nav -->
+
+<ul class="group">
+  <!-- item -->
+    <li>
+      <!-- group-title -->
+      <a ng-href="#!/group/{{groups.Widget.Id}}/schedule">
+        <div class="group-title">
+          <h4>{{groups.Widget.Title}}</h4>
+        </div>
+      </a>
+        <!-- /group-title -->
+
+        <!-- group-subtitle -->
+        <ul class="subtitle">
+          <li>تیم</li>
+          <li>امتیاز</li>
+        </ul>
+        <!-- /group-subtitle -->
+
+        <!-- group-team -->
+          <div class="group-team" ng-repeat="team in groups.Table">
+          <div class="team-warp">
+            <ul>
+              <li><img ng-src="{{team.FlagHQ}}"> {{team.Team}}</li>
+              <li>{{team.Points | persianNumbers}}</li>
+            </ul>
+          </div>
+          </div>
+        <!-- /group-team -->
+
+    </li>
+    <!-- /item -->
+</ul>
+</div>

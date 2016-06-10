@@ -1,0 +1,48 @@
+﻿<!-- loading -->
+<div class="loading" ng-show="loading">
+<img src="images/loading.svg">
+</div>
+<!-- /loading -->
+
+<!-- warp -->
+<div class="warp" ng-hide="loading">
+<!-- group-details -->
+  <div class="back"><a href="#!/index.html">برگشت</a></div>
+  <div class="group-details">
+
+  <!-- group-title -->
+        <div class="match-title">
+          <h4>بازی‌های {{group.Widget.Title}}</h4>
+        </div> 
+  <!-- /group-title -->
+
+  <!-- match-item -->
+    <div class="match" ng-repeat="match in group.Fixtures | limitTo: 3 : limit">
+    <a ng-href="#!/match/{{match.Id}}/group/{{group.Widget.Id}}">
+    <div class="match-warp">
+    <ul class="date-time">
+      <li>{{match.JalaliDate | persianNumbers}}</li>
+      <li ng-if="match.Final == true" class="final">پایان یافته</li>
+      <li>{{match.Time | persianNumbers}}</li>
+    </ul>
+
+    <ul class="match-detail">
+      <li><img ng-src="{{match.HostLogoHQ}}">{{match.HostTeam}}</li>
+      <li>{{match.GuestPoint | persianNumbers}} - {{match.HostPoint | persianNumbers}}</li>
+      <li>{{match.GuestTeam}}<img ng-src="{{match.GuestLogoHQ}}"></li>
+    </ul>
+    </div>
+    </a>
+    </div>
+  <!-- /match-item -->
+
+  <ul class="page">
+    <li ng-click="nextPage()" ng-show="nextBtn">مشاهده‌ی بازی‌های بعدی</li>
+    <li ng-click="prevPage()" ng-show="prevBtn">مشاهده‌ی بازی‌های قبلی</li>
+  </ul>
+
+  </div>
+<!-- /group-detais -->
+
+</div>
+<!-- /warp -->

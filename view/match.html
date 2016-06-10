@@ -1,0 +1,54 @@
+﻿<!-- loading -->
+<div class="loading" ng-show="loading">
+<img src="images/loading.svg">
+</div>
+<!-- /loading -->
+
+<!-- warp -->
+<div class="warp" ng-hide="loading">
+<!-- group-details -->
+  <div class="back"><a href="#!/group/{{prevPage}}/schedule">برگشت</a></div>
+  <div class="group-details" ng-hide="loading">
+
+  <!-- group-title -->
+        <div class="match-title">
+          <ul>
+          <li>{{match.Info.HostTeam}} {{match.Info.HostPoint | persianNumbers}}</li>
+          <li>{{match.Info.GuestPoint | persianNumbers}} {{match.Info.GuestTeam}}</li>
+          </ul>
+        </div>
+  <!-- /group-title -->
+
+
+
+  <!-- if game started -->
+      <div class="started">
+      <p ng-if="match.Info.Started == true && match.Info.Final == false">در حال برگزاری<span>.</span><span>.</span><span>.</span></p>
+      </div>
+  <!-- /if game started -->
+
+  <!-- if game not started -->
+  <div class="error" ng-if="match.Info.Started == false">
+    <h4>مسابقه هنوز شروع نشده!</h4>
+    <p>بازی در تاریخ <span>{{match.Info.Date | persianNumbers}}</span> و در ساعت <span>{{match.Info.Time | persianNumbers}}</span> آغاز میشود.</p>
+  </div>
+  <!-- /if game not started -->
+
+  <!-- item -->
+    <div class="match-info" ng-repeat="event in match.Events">
+
+      <ul>
+        <li ng-if="match.Info.HostId != event.TeamId"></li>
+        <li ng-if="match.Info.HostId == event.TeamId">{{event.Name}} <img ng-src="images/{{event.Status | status}}" title="{{eventTitle}}"></li>
+        <li>'{{event.StatusTime | persianNumbers}}</li>
+        <li ng-if="match.Info.HostId == event.TeamId"></li>
+        <li ng-if="match.Info.HostId != event.TeamId"><img ng-src="images/{{event.Status | status}}" title="{{eventTitle}}"> {{event.Name}}</li>
+      </ul>
+    </div>
+  <!-- /item -->  
+
+  </div>
+<!-- /group-detais -->
+
+</div> 
+<!-- /warp -->
