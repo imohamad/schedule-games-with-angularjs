@@ -23,9 +23,17 @@
 
   <!-- if game started -->
       <div class="started">
-      <p ng-if="match.Info.Started == true && match.Info.Final == false">در حال برگزاری<span>.</span><span>.</span><span>.</span></p>
+      <p ng-if="match.Info.Started == true && match.Info.Final == false" ng-click="getDatetime()">در حال برگزاری<span>.</span><span>.</span><span>.</span></p>
       </div>
   <!-- /if game started -->
+
+
+  <!-- if game not events -->
+  <div class="error" ng-if="match.Info.Started == true && match.Info.Final == false && match.Events == '' || match.Info.Started == true && match.Info.Final == true && match.Events == '' ">
+    <h4>مسابقه جزئیاتی ندارد!</h4>
+    <p>در حال حاضر بازی گل، کارت زرد یا قرمز و... نداشته است</p>
+  </div>
+  <!-- /if game not events -->
 
   <!-- if game not started -->
   <div class="error" ng-if="match.Info.Started == false">
