@@ -13,8 +13,8 @@
   <!-- group-title -->
         <div class="match-title">
           <ul>
-          <li>{{match.Info.HostTeam}} {{match.Info.HostPoint | persianNumbers}}</li>
-          <li>{{match.Info.GuestPoint | persianNumbers}} {{match.Info.GuestTeam}}</li>
+          <li><img ng-src="{{match.Info.HostLogoHQ}}"> {{match.Info.HostTeam}} {{match.Info.HostPoint | persianNumbers}}</li>
+          <li>{{match.Info.GuestPoint | persianNumbers}} {{match.Info.GuestTeam}} <img ng-src="{{match.Info.GuestLogoHQ}}"></li>
           </ul>
         </div>
   <!-- /group-title -->

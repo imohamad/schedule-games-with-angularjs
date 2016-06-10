@@ -73,7 +73,7 @@ main{
   background: url(../images/logo.png) no-repeat;
   margin: auto auto 20px auto;
 }
-nav{
+nav ul{
   background-color: #0B96CD;
   -moz-border-radius: 5px;/*Firefox*/
 -webkit-border-radius: 5px;/*Safari, Chrome*/
@@ -87,6 +87,12 @@ nav ul li{
   color: #fff;
   border-left: solid 1px #0a7ba7;
   cursor: pointer;
+}
+nav ul:nth-child(2) li{
+  padding: 8px 20px 8px 20px;
+}
+nav ul:nth-child(2){
+  margin-top: 20px;
 }
 nav ul li:first-child{
   /*Firefox*/
@@ -125,21 +131,24 @@ border-bottom-left-radius: 5px;
 nav ul li:hover{
   background-color: #0a87b8;
 }
-.current{
+.current, .currentcopa{
   background-color: #0a87b8;
 }
-.current:after {
+.current:after, .currentcopa:after {
   content:'';
   width: 0; 
   height: 0; 
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #0a87b8;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #0a87b8;
   position:absolute;
   margin-right: -28px;
-  margin-top: 40px;
+  margin-top: 38px;
   pointer-events:none;
   z-index:3;
+}
+.currentcopa:after{
+  margin-right: -50px;  
 }
 
 /*-- group --*/
